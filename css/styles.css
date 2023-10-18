@@ -1,0 +1,382 @@
+@import url('cabinet-grotesk.css');
+
+:root {
+    --font-size-sm: clamp(0.833rem, 0.417vw + 0.781rem, 1rem);
+    --font-size-base: clamp(1rem, 0.5vw + 0.938rem, 1.5rem);
+    --font-size-md: clamp(1.2rem, 0.6vw + 1.125rem, 1.8rem);
+    --font-size-lg: clamp(1.44rem, 0.72vw + 1.35rem, 2.16rem);
+    --font-size-xl: clamp(1.728rem, 1.864vw + 1.62rem, 3rem);
+    --font-size-xxl: clamp(2.074rem, 2.037vw + 1.944rem, 4.11rem);
+    --font-size-xxxl: clamp(2.488rem, 2.244vw + 3.333rem, 6rem);
+    --p-line-height: 1.4;
+    --white-space-4: clamp(4px, 0.5rem, 8px);
+    --white-space-8: clamp(8px, 1rem, 16px);
+    --white-space-16: clamp(16px, 1.5rem, 32px);
+    --white-space-24: clamp(24px, 2rem, 48px);
+    --white-space-32: clamp(32px, 2.5rem, 64px);
+    --white-space-40: clamp(40px, 3rem, 80px);
+    --white-space-48: clamp(48px, 3.5rem, 96px);
+    --white-space-64: clamp(64px, 4.5rem, 128px);
+    --sections-margin: clamp(80px, 6.875rem, 220px);
+    --sections-padding: clamp(40px, 9.4375rem, 150px);
+    --shadow: 0px 4px 33px 0px rgba(0, 0, 0, 0.15);; 
+    --fast-slow-transition: cubic-bezier(.7, 0, .2, 1);
+    --opacity-translateY-transition-mid: transform 1.5s var(--fast-slow-transition),
+    opacity 0.8s var(--fast-slow-transition);
+    --opacity-translateY-transition-slow1: transform 2.5s var(--fast-slow-transition),
+    opacity 1s var(--fast-slow-transition);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'CabinetGrotesk-Medium';
+    text-transform: capitalize;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F6F6F6;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*/ HEADER /*/
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2vw 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    width: 20vw;
+    aspect-ratio: 1 / 0.23;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#header-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 5rem;
+    padding-inline: var(--white-space-16);
+    box-shadow: var(--shadow);
+}
+
+#header-links li{
+    padding: var(--white-space-8) var(--white-space-16);
+}
+
+#header-links li a {
+    font-size: var(--font-size-base);
+    color: #000;
+}
+
+#header > button {
+    padding: var(--white-space-8) var(--white-space-32);
+    background: #FFF;
+    border-radius: 5rem;
+    font-size: var(--font-size-sm);
+    margin-right: 1vw;
+    box-shadow: var(--shadow);
+}
+
+/*/ HOME /*/
+
+#home {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#home::before {
+    position: absolute;
+    content: "";
+    width: 99%;
+    height: 98%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2.4375rem;
+    background: radial-gradient(279.57% 115.59% at 25.97% 88.77%, #D300FF 6.71%, #4E0093 100%);
+    z-index: -1;
+}
+
+#home::after {
+    position: absolute;
+    content: "";
+    width: 53%;
+    top: 29%;
+    left: -11%;
+    aspect-ratio: 1 / 1;
+    transform: rotate(60deg);
+    border-radius: 50.53944rem;
+    opacity: 0.1;
+    background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
+    z-index: -1;
+}
+
+#left-wrapper {
+    width: 50%;
+    margin-left: 4vw;
+    margin-top: auto;
+    margin-bottom: var(--white-space-32);
+}
+
+h1 {
+    color: #FFF;
+    font-size: var(--font-size-xxxl);
+    font-family: 'CabinetGrotesk-Bold';
+    max-width: 12ch;
+    line-height: 0.9;
+}
+
+#left-wrapper p {
+    color: #fff;
+    font-size: var(--font-size-base);
+    max-width: 40ch;
+    margin-top: var(--white-space-4);
+}
+
+#scroll-down {
+    display: block;
+    width: 4vw;
+    aspect-ratio: 1 / 1;
+    margin-top: var(--white-space-40);
+}
+
+/*/ ABOUT /*/
+
+#about {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: var(--white-space-24);
+    width: 96%;
+    margin: auto;
+    margin-top: var(--sections-margin);
+}
+
+#about figure {
+    width: 100%;
+    aspect-ratio: auto;
+}
+
+#about figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#about > div {
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: var(--font-size-xxl);
+    max-width: 20.5ch;
+    text-align: center;
+}
+
+#about > div > p {
+    font-size: var(--font-size-base);
+    text-align: center;
+    margin-top: var(--white-space-8);
+    max-width: 40ch;
+}
+
+/*/ FEATURES /*/
+
+#features {
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+    margin: auto;
+    margin-top: var(--sections-margin);
+}
+
+h3 {
+    font-size: var(--font-size-xxl);
+    max-width: 19ch;
+    margin-left: 3vw;
+    line-height: 0.9;
+}
+
+#features-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 94%;
+    column-gap: var(--white-space-4);
+    margin: auto;
+    margin-top: var(--white-space-32);
+}
+
+.feature-card {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    justify-items: center;
+    row-gap: var(--white-space-8);
+    background-color: #FFF;
+    border-radius: 2.4375rem;
+    padding :var(--white-space-32)  var(--white-space-16);
+}
+
+.feature-card figure {
+    width: 90%;
+    aspect-ratio: 1 / 1;
+}
+.feature-card figure img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.feature-card h4 {
+    font-size: var(--font-size-xl);
+    line-height: 1;
+}
+
+.feature-card p {
+    font-size: var(--font-size-base);
+    font-family: 'CabinetGrotesk-Regular';
+}
+
+/*/ COMPATIBILITY /*/
+
+#compatibitly {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    width: 98%;
+    margin: auto;
+    margin-top: var(--sections-margin);
+    background: radial-gradient(279.57% 115.59% at 25.97% 88.77%, #D300FF 6.71%, #4E0093 100%);
+    border-radius: 2.4375rem;
+}
+
+#compatibitly figure {
+    width: 100%;
+    aspect-ratio: 1 / 0.88757;
+}
+
+#compatibitly figure img {
+    width: 100%;
+    height: 100%;
+}
+
+#compatibitly > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3vw;
+}
+
+#compatibitly h4 {
+    font-size: var(--font-size-xxl);
+    color: #fff;
+    max-width: 18ch;
+}
+
+#compatibitly p {
+    font-size: var(--font-size-base);
+    color: #FFF;
+    max-width: 45ch;
+}
+
+/*/ DEMO VIDEO /*/
+
+#demo-video {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: var(--white-space-24);
+    width: 90%;
+    margin: auto;
+    margin-top: var(--sections-margin);
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 0.58;
+    border-radius: 2.6875rem;
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#demo-video > article {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    row-gap: var(--white-space-16);
+    place-content: center;
+    background: #FFF;
+    padding: 3vw;
+    border-radius: 2.6875rem;
+}
+
+#demo-video h5 {
+    font-size: var(--font-size-xxl);
+    line-height: 1;
+}
+
+#demo-video p {
+    font-size: var(--font-size-base);
+    font-family: 'CabinetGrotesk-Regular';
+}
+
+#demo-video article i {
+    width: 50%;
+    font-size: var(--font-size-base);
+    font-style: normal;
+    text-align: center;
+    padding: var(--white-space-8);
+    color: #FFF;
+    background: radial-gradient(279.57% 115.59% at 25.97% 88.77%, #D300FF 6.71%, #4E0093 100%);
+    border-radius: 0.8125rem;
+}
+
+/*/ REQUEST DEMO /*/
+
+#request-demo {
+    margin-top: var(--sections-margin);
+}
